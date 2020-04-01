@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+
 
 @Component({
   selector: 'app-code-generation',
@@ -6,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./code-generation.component.less']
 })
 export class CodeGenerationComponent implements OnInit {
-
-  constructor() { }
+ inputTypes:any = ['text','password','email','date','number']
+ inputSourceCodeForm: FormGroup
+  constructor(private fb: FormBuilder ) { }
 
   ngOnInit(): void {
+    
+    this.inputSourceCodeForm = this.fb.group({
+      label:['', Validators.required],
+      for:['', Validators.required],
+      selectInputType:['',Validators.required],
+      nameAttr:['']
+    })
+  }
+
+  onSubmit(){
+
   }
 
 }

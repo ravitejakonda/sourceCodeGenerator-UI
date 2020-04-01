@@ -10,15 +10,46 @@
 <div class="container">
     <div class="row">
         <div class="card ">
-            <div class="card-header bg-info">
+            <div class="card-header bg-primary">
                 Input Element
             </div>
             <div class="card-body">
-                <form >
-                    <div class="form-group">
-                        <label>Label</label>
-                        <input type="text" class="form-control">
+                <form [formGroup]="inputSourceCodeForm" (ngSubmit)="onSubmit()">
+                    <div class="box">
+                        <div class="form-group">
+                            <label>Label</label>
+                            <input placeholder="Give Label of HTML Element" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>For</label>
+                            <input placeholder="provide unique name" type="text" class="form-control">
+                        </div>
                     </div>
+
+                    <div class="box">
+                        <div class="form-group">
+                            <label>Type</label>
+                            <select class="form-control">
+                                <option selected hidden disabled>Select input Type</option>
+                                <option *ngFor="let type of inputTypes">{{type}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input placeholder="provide unique name" type="text" class="form-control">
+                        </div>
+                    </div>
+
+                    <input type="checkbox" id="validation1" name="validation1" value="Disabled">
+                    <label for="validation1" class="checkBoxPadding"> disabled</label>
+                    <input type="checkbox" id="validation2" name="validation2" value="Required">
+                    <label for="validation2" class="checkBoxPadding"> required</label>
+                    <input type="checkbox" id="validation3" name="validation3" value="min">
+                    <label for="validation3" class="checkBoxPadding"> min</label>
+                    <input type="checkbox" id="validation4" name="validation4" value="max">
+                    <label for="validation4" class="checkBoxPadding"> max</label>
+                    <input type="checkbox" id="validation5" name="validation5" value="pattern">
+                    <label for="validation5" class="checkBoxPadding"> pattern</label><br><br>
                     <button class="btn btn-primary">Submit</button>
                 </form>
             </div>

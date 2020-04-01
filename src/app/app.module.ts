@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CodeGenerationComponent } from './code-generation/code-generation.component';
 
+import { ReactiveFormsModule } from '@angular/forms'
+
 @NgModule({
   declarations: [
     AppComponent,
