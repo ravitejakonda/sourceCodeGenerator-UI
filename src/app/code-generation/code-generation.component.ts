@@ -8,8 +8,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./code-generation.component.less']
 })
 export class CodeGenerationComponent implements OnInit {
- inputTypes:any = ['text','password','email','date','number']
- inputSourceCodeForm: FormGroup
+ inputTypes:any = ['text','password','email','date','number'];
+ isDisabled:boolean;
+ isMin:boolean;
+ isMax:boolean;
+ isPattern:boolean;
+ isRequired:boolean;
+inputSourceCodeForm: FormGroup
   constructor(private fb: FormBuilder ) { }
 
   ngOnInit(): void {
@@ -18,7 +23,13 @@ export class CodeGenerationComponent implements OnInit {
       label:['', Validators.required],
       for:['', Validators.required],
       selectInputType:['',Validators.required],
-      nameAttr:['']
+      nameAttr:[''],
+      disabledCb:[false],
+      requiredCb:[false],
+      minCb:[false],
+      maxCb:[false],
+      patternCb:[false]
+      
     })
   }
 
